@@ -13,7 +13,7 @@ export function SiteNav() {
   return (
     <header className="site-header">
       <div className="agency-strip">
-        <span>Academic Portfolio Record</span>
+        <span>Engineering Portfolio Record</span>
         <span>Prince of Songkla University</span>
       </div>
       <div className="site-masthead">
@@ -21,7 +21,7 @@ export function SiteNav() {
           PS
         </a>
         <div>
-          <p>Computer Engineering Candidate Dossier</p>
+          <p>Computer Engineering Portfolio Record</p>
           <strong>{profile.name}</strong>
           <span>{profile.role}</span>
         </div>

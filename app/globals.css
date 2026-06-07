@@ -220,7 +220,7 @@ main {
   background: var(--white);
 }
 
-.candidate-record {
+.profile-record {
   padding: clamp(24px, 4vw, 44px);
   border-right: 1px solid var(--line);
 }
@@ -236,7 +236,7 @@ main {
   text-transform: uppercase;
 }
 
-.candidate-record h1 {
+.profile-record h1 {
   max-width: 14ch;
   margin: 0;
   color: var(--navy-dark);
@@ -1051,12 +1051,12 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .candidate-record,
+  .profile-record,
   .project-copy {
     border-right: 0;
   }
 
-  .candidate-record {
+  .profile-record {
     border-bottom: 1px solid var(--line);
   }
 
@@ -1147,14 +1147,14 @@ main {
     border-bottom: 0;
   }
 
-  .candidate-record,
+  .profile-record,
   .verification-panel,
   .project-copy,
   .project-media {
     padding: 16px;
   }
 
-  .candidate-record h1 {
+  .profile-record h1 {
     max-width: 100%;
     font-size: clamp(2.15rem, 10vw, 2.55rem);
     overflow-wrap: normal;

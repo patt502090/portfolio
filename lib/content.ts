@@ -283,7 +283,7 @@ export const allMedia = galleryGroups.flatMap((group) => group.media);
 
 export const profile = {
   name: "Phodcharaphon Sukonsakun",
-  role: "Full-stack engineering intern candidate",
+  role: "Full-stack engineering intern",
   school: "Computer Engineering, Prince of Songkla University",
   gpa: "GPA 3.66",
   email: "patt502090@hotmail.com",

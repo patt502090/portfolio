@@ -2,33 +2,32 @@
 
 ## Overview
 
-The portfolio uses a restrained light interface with a cool technical anchor color, controlled red accents for achievement proof, and real project imagery as the visual engine. The mood is "engineering dossier on a clean lab bench": clear, inspectable, high-trust.
+The portfolio uses a restrained light interface with formal institutional structure, navy accents, controlled red labels for proof, and real project imagery as supporting evidence. The mood is an official engineering portfolio record: clear, inspectable, high-trust.
 
 ## Color
 
-Use OKLCH tokens only.
+Use restrained institutional colors.
 
-- Background: `oklch(1 0 0)`
-- Surface: `oklch(0.985 0.004 210)`
-- Ink: `oklch(0.18 0.025 235)`
-- Muted: `oklch(0.42 0.025 235)`
-- Line: `oklch(0.9 0.012 220)`
-- Primary: `oklch(0.54 0.115 202)`
-- Primary dark: `oklch(0.34 0.1 210)`
-- Accent: `oklch(0.48 0.17 25)`
-- Mint: `oklch(0.76 0.12 170)`
+- Background: `#fbfbf8`
+- Paper: `#ffffff`
+- Ink: `#111827`
+- Muted: `#4b5563`
+- Line: `#d7dee7`
+- Navy: `#17375e`
+- Navy dark: `#0c2340`
+- Red accent: `#8f1d1d`
 
 ## Typography
 
-Use Manrope for body text and Sora for display headings. Keep letter spacing at zero. Headings should be balanced, direct, and capped below oversized hero scales.
+Use system sans-serif for body text and Georgia for formal headings. Keep letter spacing at zero except small uppercase labels.
 
 ## Layout
 
-One-page scroll with a fixed navigation bar, a strong hero, wide project case-study rows, a compact achievement timeline, a structured skills matrix, and a filterable evidence gallery. Cards may be used for repeated items only. Page sections should remain unframed and full-width.
+One-page scroll with an institutional masthead, profile record, wide project record rows, a compact achievement timeline, a structured skills matrix, and a filterable evidence gallery. Use bordered records and tables instead of decorative cards.
 
 ## Components
 
-- Fixed navigation with text links and direct resume CTA.
+- Institutional masthead with text links and direct resume CTA.
 - Project case studies with one decisive image, role, impact bullets, tech tags, and external links.
 - Achievement timeline with source, date, outcome, and supporting media.
 - Gallery filters with image lightbox.

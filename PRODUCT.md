@@ -10,7 +10,7 @@ Interviewers, recruiters, engineering leads, and internship reviewers who need t
 
 ## Product Purpose
 
-This portfolio presents Phodcharaphon as a full-stack engineering intern candidate with production web systems, backend ownership, cybersecurity and networking depth, embedded systems experience, and competition results. Success means a reviewer can quickly see role fit, trust the proof, open live work or GitHub repositories, and download the resume.
+This portfolio presents Phodcharaphon as a full-stack engineering intern with production web systems, backend ownership, cybersecurity and networking depth, embedded systems experience, and competition results. Success means a reviewer can quickly see role fit, trust the proof, open live work or GitHub repositories, and download the resume.
 
 ## Brand Personality
 

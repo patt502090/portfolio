@@ -54,25 +54,25 @@ export function PortfolioPage() {
         <section className="hero-section">
           <div className="official-shell">
             <div className="record-banner">
-              <span>Candidate Academic Record</span>
+              <span>Engineering Portfolio Record</span>
               <span>Computer Engineering</span>
               <span>Prince of Songkla University</span>
             </div>
 
             <div className="hero-content">
-              <section className="candidate-record" aria-labelledby="candidate-name">
-                <p className="record-label">Formal Portfolio Dossier</p>
-                <h1 id="candidate-name">{profile.name}</h1>
+              <section className="profile-record" aria-labelledby="profile-name">
+                <p className="record-label">Formal Engineering Portfolio</p>
+                <h1 id="profile-name">{profile.name}</h1>
                 <p className="hero-role">{profile.role}</p>
                 <p className="hero-summary">{profile.summary}</p>
 
-                <dl className="identity-grid" aria-label="Candidate details">
+                <dl className="identity-grid" aria-label="Profile details">
                   <div>
                     <dt>Institution</dt>
                     <dd>{profile.school}</dd>
                   </div>
                   <div>
-                    <dt>Academic Standing</dt>
+                    <dt>Education Record</dt>
                     <dd>{profile.gpa}</dd>
                   </div>
                   <div>
