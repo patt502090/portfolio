@@ -298,7 +298,7 @@ export const proofPoints = [
   "Led backend work on Archives BIA, a live public archive platform.",
   "Built typed full-stack products with Next.js, NestJS, PostgreSQL, Redis, and tRPC.",
   "Placed Top 5 in Huawei ICT Competition Network Track national final.",
-  "Placed 6th in Thailand Cyber Top Talent 2025 final round."
+  "Placed 6th in Thailand Cyber Top Talent 2025 final round and 1st in Southern region."
 ];
 
 export const projects: Project[] = [
@@ -481,9 +481,9 @@ export const achievements: Achievement[] = [
     title: "6th Place, Thailand Cyber Top Talent 2025",
     issuer: "NCSA Thailand",
     date: "Aug 2025",
-    outcome: "Final Round, Red Team role",
+    outcome: "Final Round, Red Team role, 1st in Southern region",
     details:
-      "Worked through CTF-style scenarios requiring system analysis, weakness discovery, exploitation, and network/server troubleshooting.",
+      "Ranked 6th in the national final and 1st in Southern region. Worked through CTF-style scenarios requiring system analysis, weakness discovery, exploitation, and network/server troubleshooting.",
     media: cyberTopTalent.media
   },
   {
