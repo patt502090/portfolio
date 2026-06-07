@@ -374,7 +374,7 @@ export const projects: Project[] = [
         href: "https://github.com/patt502090/PSUCalendar"
       }
     ],
-    media: psuOpenApi.media
+    media: [psuOpenApi.media[2], psuOpenApi.media[0], psuOpenApi.media[1]]
   },
   {
     slug: "smart-voting-machine",
@@ -400,18 +400,28 @@ export const projects: Project[] = [
   },
   {
     slug: "ce-group1-netops",
-    title: "CE-Group1-NetOps",
-    kicker: "Physical network and SOC infrastructure",
+    title: "Enterprise Network & Security Infrastructure",
+    kicker: "Cisco network and security operations platform",
     period: "2026",
     role: "Network and security infrastructure contributor",
     summary:
-      "A physical enterprise network and security operations platform using Cisco hardware, Wazuh SIEM, NetFlow, Active Directory, 802.1X, and a monitored honeypot.",
+      "A multi-zone enterprise network and security infrastructure built with Cisco Catalyst switching, Firepower FTD, 802.1X identity access, Samba4 AD, FreeRADIUS, Oxidized, Grafana, and Wazuh.",
     impact: [
-      "Documented a live segmented network with Cisco FPR-2110, C9200L, C3750X, WLC, Raspberry Pi servers, and Mac Mini services.",
-      "Integrated Wazuh, Loki, Grafana, NetBox, Oxidized, Samba AD, FreeRADIUS, and honeypot monitoring.",
-      "Mapped real infrastructure controls: VLANs, ACLs, PBR, 802.1X SSO, syslog, NetFlow, and active response."
+      "Architected 6-VLAN segmentation for Server, User, Staff Wi-Fi, Guest, Management, and DMZ zones, enforcing least-privilege access across traffic zones.",
+      "Deployed Catalyst L3 inter-VLAN routing, Firepower FTD zone-based firewall policies, dynamic NAT/PAT, and LACP EtherChannel for redundant uplinks.",
+      "Integrated 802.1X EAP-PEAP/MSCHAPv2 with FreeRADIUS and Samba4 AD, plus Oxidized Git-backed config versioning and SNMPv3/Grafana/Wazuh monitoring."
     ],
-    tags: ["Cisco", "Wazuh", "Grafana", "NetBox", "802.1X", "Samba AD", "Honeypot"],
+    tags: [
+      "Cisco C9200L",
+      "C3750X",
+      "FPR-2110 FTD",
+      "802.1X",
+      "Samba4 AD",
+      "FreeRADIUS",
+      "Oxidized",
+      "Grafana",
+      "Wazuh"
+    ],
     links: [
       {
         label: "View repository",
