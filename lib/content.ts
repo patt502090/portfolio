@@ -312,7 +312,7 @@ export const projects: Project[] = [
       "A live digital archive for Buddhadasa Indapanno Archives, built for document ingestion, archival metadata, public discovery, and internal operations.",
     impact: [
       "Coordinated backend architecture decisions, codebase conventions, and task delegation across the engineering team.",
-      "Built an asynchronous ingestion pipeline with BullMQ and Redis to avoid gateway timeouts and support batches over 100,000 files.",
+      "Built an asynchronous ingestion pipeline with BullMQ and Redis to avoid gateway timeouts while supporting continuous uploads into an archive totaling over 500,000 files.",
       "Designed REST APIs, ISAD-G metadata models, PostgreSQL queries, and materialized views for recursive archive trees."
     ],
     tags: [
