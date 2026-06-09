@@ -523,7 +523,8 @@ main {
 }
 
 .project-meta,
-.tag-row {
+.tag-row,
+.stack-mark-row {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
@@ -575,8 +576,66 @@ main {
   margin-top: 16px;
 }
 
-.tag-row {
+.stack-mark-row {
   margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.stack-mark {
+  --stack-color: var(--navy);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 4px 10px 4px 5px;
+  border: 1px solid var(--line-dark);
+  background: var(--white);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.stack-mark > span {
+  display: inline-grid;
+  min-width: 25px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--stack-color) 62%, white);
+  background: color-mix(in srgb, var(--stack-color) 10%, white);
+  color: var(--stack-color);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.stack-mark[data-tone="navy"] {
+  --stack-color: var(--navy);
+}
+
+.stack-mark[data-tone="blue"] {
+  --stack-color: #24558f;
+}
+
+.stack-mark[data-tone="green"] {
+  --stack-color: #2f6b4f;
+}
+
+.stack-mark[data-tone="red"] {
+  --stack-color: #8f1d1d;
+}
+
+.stack-mark[data-tone="purple"] {
+  --stack-color: #60448c;
+}
+
+.stack-mark[data-tone="slate"] {
+  --stack-color: #475569;
+}
+
+.tag-row {
+  margin-top: 10px;
 }
 
 .project-links {

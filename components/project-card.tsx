@@ -45,6 +45,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </li>
           ))}
         </ul>
+        <div className="stack-mark-row" aria-label={`${project.title} primary stack`}>
+          {project.stackMarks.map((stack) => (
+            <span className="stack-mark" data-tone={stack.tone} key={stack.label}>
+              <span aria-hidden="true">{stack.mark}</span>
+              {stack.label}
+            </span>
+          ))}
+        </div>
         <div className="tag-row" aria-label={`${project.title} technology stack`}>
           {project.tags.map((tag) => (
             <span key={tag}>{tag}</span>

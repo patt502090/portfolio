@@ -29,9 +29,16 @@ export type Project = {
   role: string;
   summary: string;
   impact: string[];
+  stackMarks: StackMark[];
   tags: string[];
   links: LinkItem[];
   media: MediaItem[];
+};
+
+export type StackMark = {
+  label: string;
+  mark: string;
+  tone: "navy" | "blue" | "green" | "red" | "purple" | "slate";
 };
 
 export type Achievement = {
@@ -315,6 +322,13 @@ export const projects: Project[] = [
       "Built an asynchronous ingestion pipeline with BullMQ and Redis to avoid gateway timeouts while supporting continuous uploads into an archive totaling over 500,000 files.",
       "Designed REST APIs, ISAD-G metadata models, PostgreSQL queries, and materialized views for recursive archive trees."
     ],
+    stackMarks: [
+      { label: "NestJS", mark: "N", tone: "red" },
+      { label: "PostgreSQL", mark: "PG", tone: "blue" },
+      { label: "Redis", mark: "R", tone: "red" },
+      { label: "BullMQ", mark: "BQ", tone: "slate" },
+      { label: "MinIO", mark: "MI", tone: "navy" }
+    ],
     tags: [
       "NestJS",
       "PostgreSQL",
@@ -345,6 +359,13 @@ export const projects: Project[] = [
       "Implemented image preview modals and detail transitions with Framer Motion.",
       "Integrated tRPC for type-safe client and server API communication."
     ],
+    stackMarks: [
+      { label: "Next.js", mark: "N", tone: "navy" },
+      { label: "React", mark: "R", tone: "blue" },
+      { label: "TypeScript", mark: "TS", tone: "blue" },
+      { label: "tRPC", mark: "t", tone: "purple" },
+      { label: "Framer Motion", mark: "FM", tone: "slate" }
+    ],
     tags: ["Next.js", "React", "TypeScript", "tRPC", "Framer Motion", "Gallery UX"],
     links: [
       {
@@ -366,6 +387,13 @@ export const projects: Project[] = [
       "Delivered a working calendar product under contest time constraints.",
       "Built a Next.js client with calendar views and a NestJS service layer for event and schedule data.",
       "Presented the system as a centralized scheduling workflow for university users."
+    ],
+    stackMarks: [
+      { label: "Next.js", mark: "N", tone: "navy" },
+      { label: "NestJS", mark: "N", tone: "red" },
+      { label: "OAuth", mark: "OA", tone: "green" },
+      { label: "Google Calendar", mark: "G", tone: "blue" },
+      { label: "SQLite", mark: "SQ", tone: "slate" }
     ],
     tags: ["Next.js", "NestJS", "TypeScript", "OAuth", "Google Calendar", "SQLite"],
     links: [
@@ -389,6 +417,13 @@ export const projects: Project[] = [
       "Connected ESP32, Arduino UNO, peripherals, and ODROID backend through UART, Wi-Fi, HTTP APIs, and GPIO.",
       "Built admin and results workflows with real-time vote display, SQLite storage, and AI camera wake detection."
     ],
+    stackMarks: [
+      { label: "ESP32", mark: "E", tone: "blue" },
+      { label: "Arduino", mark: "A", tone: "green" },
+      { label: "ODROID C4", mark: "O", tone: "red" },
+      { label: "FastAPI", mark: "FA", tone: "green" },
+      { label: "RFID", mark: "RF", tone: "slate" }
+    ],
     tags: ["ESP32", "Arduino", "ODROID C4", "Python", "FastAPI", "SQLite", "RFID"],
     links: [
       {
@@ -410,6 +445,14 @@ export const projects: Project[] = [
       "Architected 6-VLAN segmentation for Server, User, Staff Wi-Fi, Guest, Management, and DMZ zones, enforcing least-privilege access across traffic zones.",
       "Deployed Catalyst L3 inter-VLAN routing, Firepower FTD zone-based firewall policies, dynamic NAT/PAT, and LACP EtherChannel for redundant uplinks.",
       "Integrated 802.1X EAP-PEAP/MSCHAPv2 with FreeRADIUS and Samba4 AD, plus Oxidized Git-backed config versioning and SNMPv3/Grafana/Wazuh monitoring."
+    ],
+    stackMarks: [
+      { label: "Cisco", mark: "C", tone: "blue" },
+      { label: "Firepower FTD", mark: "FTD", tone: "red" },
+      { label: "802.1X", mark: "1X", tone: "navy" },
+      { label: "Samba4 AD", mark: "AD", tone: "slate" },
+      { label: "Wazuh", mark: "W", tone: "blue" },
+      { label: "Grafana", mark: "G", tone: "red" }
     ],
     tags: [
       "Cisco C9200L",
@@ -442,6 +485,13 @@ export const projects: Project[] = [
       "Developed wallet auth and SuiNS domain management with Sui SDK and dapp-kit.",
       "Built dashboard surfaces for blockchain state, deployment status, and Walrus blob data.",
       "Standardized shared UI components with Radix UI and Tailwind CSS across a 3-person frontend team."
+    ],
+    stackMarks: [
+      { label: "Sui", mark: "S", tone: "blue" },
+      { label: "Walrus", mark: "W", tone: "purple" },
+      { label: "dapp-kit", mark: "DK", tone: "navy" },
+      { label: "SuiNS", mark: "SN", tone: "blue" },
+      { label: "Radix UI", mark: "RX", tone: "slate" }
     ],
     tags: ["Sui", "Walrus", "dapp-kit", "React", "Tailwind CSS", "Radix UI"],
     links: [],
