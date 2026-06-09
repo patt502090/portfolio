@@ -326,6 +326,7 @@ export const projects: Project[] = [
       { label: "NestJS", icon: "/assets/stack/nestjs.svg" },
       { label: "PostgreSQL", icon: "/assets/stack/postgresql.svg" },
       { label: "Redis", icon: "/assets/stack/redis.svg" },
+      { label: "BullMQ", icon: "/assets/stack/bullmq.png" },
       { label: "MinIO", icon: "/assets/stack/minio.svg" }
     ],
     tags: [
