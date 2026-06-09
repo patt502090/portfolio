@@ -45,17 +45,23 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </li>
           ))}
         </ul>
-        <div className="stack-mark-row" aria-label={`${project.title} primary stack`}>
-          {project.stackMarks.map((stack) => (
-            <span className="stack-mark" data-tone={stack.tone} key={stack.label}>
-              <span aria-hidden="true">{stack.mark}</span>
-              {stack.label}
+        <div className="stack-logo-row" aria-label={`${project.title} primary stack`}>
+          {project.stackLogos.map((stack) => (
+            <span
+              className={stack.wordmark ? "stack-logo is-wordmark" : "stack-logo"}
+              key={stack.label}
+              aria-label={stack.label}
+            >
+              <Image
+                src={stack.icon}
+                alt=""
+                aria-hidden="true"
+                width={28}
+                height={28}
+                unoptimized
+              />
+              {stack.wordmark ? null : <span>{stack.label}</span>}
             </span>
-          ))}
-        </div>
-        <div className="tag-row" aria-label={`${project.title} technology stack`}>
-          {project.tags.map((tag) => (
-            <span key={tag}>{tag}</span>
           ))}
         </div>
         {project.links.length ? (

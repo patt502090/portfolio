@@ -29,16 +29,16 @@ export type Project = {
   role: string;
   summary: string;
   impact: string[];
-  stackMarks: StackMark[];
+  stackLogos: StackLogo[];
   tags: string[];
   links: LinkItem[];
   media: MediaItem[];
 };
 
-export type StackMark = {
+export type StackLogo = {
   label: string;
-  mark: string;
-  tone: "navy" | "blue" | "green" | "red" | "purple" | "slate";
+  icon: string;
+  wordmark?: boolean;
 };
 
 export type Achievement = {
@@ -322,12 +322,11 @@ export const projects: Project[] = [
       "Built an asynchronous ingestion pipeline with BullMQ and Redis to avoid gateway timeouts while supporting continuous uploads into an archive totaling over 500,000 files.",
       "Designed REST APIs, ISAD-G metadata models, PostgreSQL queries, and materialized views for recursive archive trees."
     ],
-    stackMarks: [
-      { label: "NestJS", mark: "N", tone: "red" },
-      { label: "PostgreSQL", mark: "PG", tone: "blue" },
-      { label: "Redis", mark: "R", tone: "red" },
-      { label: "BullMQ", mark: "BQ", tone: "slate" },
-      { label: "MinIO", mark: "MI", tone: "navy" }
+    stackLogos: [
+      { label: "NestJS", icon: "/assets/stack/nestjs.svg" },
+      { label: "PostgreSQL", icon: "/assets/stack/postgresql.svg" },
+      { label: "Redis", icon: "/assets/stack/redis.svg" },
+      { label: "MinIO", icon: "/assets/stack/minio.svg" }
     ],
     tags: [
       "NestJS",
@@ -359,12 +358,12 @@ export const projects: Project[] = [
       "Implemented image preview modals and detail transitions with Framer Motion.",
       "Integrated tRPC for type-safe client and server API communication."
     ],
-    stackMarks: [
-      { label: "Next.js", mark: "N", tone: "navy" },
-      { label: "React", mark: "R", tone: "blue" },
-      { label: "TypeScript", mark: "TS", tone: "blue" },
-      { label: "tRPC", mark: "t", tone: "purple" },
-      { label: "Framer Motion", mark: "FM", tone: "slate" }
+    stackLogos: [
+      { label: "Next.js", icon: "/assets/stack/nextdotjs.svg" },
+      { label: "React", icon: "/assets/stack/react.svg" },
+      { label: "TypeScript", icon: "/assets/stack/typescript.svg" },
+      { label: "tRPC", icon: "/assets/stack/trpc.svg" },
+      { label: "Framer Motion", icon: "/assets/stack/framer.svg" }
     ],
     tags: ["Next.js", "React", "TypeScript", "tRPC", "Framer Motion", "Gallery UX"],
     links: [
@@ -388,12 +387,12 @@ export const projects: Project[] = [
       "Built a Next.js client with calendar views and a NestJS service layer for event and schedule data.",
       "Presented the system as a centralized scheduling workflow for university users."
     ],
-    stackMarks: [
-      { label: "Next.js", mark: "N", tone: "navy" },
-      { label: "NestJS", mark: "N", tone: "red" },
-      { label: "OAuth", mark: "OA", tone: "green" },
-      { label: "Google Calendar", mark: "G", tone: "blue" },
-      { label: "SQLite", mark: "SQ", tone: "slate" }
+    stackLogos: [
+      { label: "Next.js", icon: "/assets/stack/nextdotjs.svg" },
+      { label: "NestJS", icon: "/assets/stack/nestjs.svg" },
+      { label: "TypeScript", icon: "/assets/stack/typescript.svg" },
+      { label: "Google Calendar", icon: "/assets/stack/googlecalendar.svg" },
+      { label: "SQLite", icon: "/assets/stack/sqlite.svg" }
     ],
     tags: ["Next.js", "NestJS", "TypeScript", "OAuth", "Google Calendar", "SQLite"],
     links: [
@@ -417,12 +416,12 @@ export const projects: Project[] = [
       "Connected ESP32, Arduino UNO, peripherals, and ODROID backend through UART, Wi-Fi, HTTP APIs, and GPIO.",
       "Built admin and results workflows with real-time vote display, SQLite storage, and AI camera wake detection."
     ],
-    stackMarks: [
-      { label: "ESP32", mark: "E", tone: "blue" },
-      { label: "Arduino", mark: "A", tone: "green" },
-      { label: "ODROID C4", mark: "O", tone: "red" },
-      { label: "FastAPI", mark: "FA", tone: "green" },
-      { label: "RFID", mark: "RF", tone: "slate" }
+    stackLogos: [
+      { label: "ESP32", icon: "/assets/stack/espressif.svg" },
+      { label: "Arduino", icon: "/assets/stack/arduino.svg" },
+      { label: "Python", icon: "/assets/stack/python.svg" },
+      { label: "FastAPI", icon: "/assets/stack/fastapi.svg" },
+      { label: "SQLite", icon: "/assets/stack/sqlite.svg" }
     ],
     tags: ["ESP32", "Arduino", "ODROID C4", "Python", "FastAPI", "SQLite", "RFID"],
     links: [
@@ -446,13 +445,10 @@ export const projects: Project[] = [
       "Deployed Catalyst L3 inter-VLAN routing, Firepower FTD zone-based firewall policies, dynamic NAT/PAT, and LACP EtherChannel for redundant uplinks.",
       "Integrated 802.1X EAP-PEAP/MSCHAPv2 with FreeRADIUS and Samba4 AD, plus Oxidized Git-backed config versioning and SNMPv3/Grafana/Wazuh monitoring."
     ],
-    stackMarks: [
-      { label: "Cisco", mark: "C", tone: "blue" },
-      { label: "Firepower FTD", mark: "FTD", tone: "red" },
-      { label: "802.1X", mark: "1X", tone: "navy" },
-      { label: "Samba4 AD", mark: "AD", tone: "slate" },
-      { label: "Wazuh", mark: "W", tone: "blue" },
-      { label: "Grafana", mark: "G", tone: "red" }
+    stackLogos: [
+      { label: "Cisco", icon: "/assets/stack/cisco.svg" },
+      { label: "Wazuh", icon: "/assets/stack/wazuh.svg", wordmark: true },
+      { label: "Grafana", icon: "/assets/stack/grafana.svg" }
     ],
     tags: [
       "Cisco C9200L",
@@ -486,12 +482,12 @@ export const projects: Project[] = [
       "Built dashboard surfaces for blockchain state, deployment status, and Walrus blob data.",
       "Standardized shared UI components with Radix UI and Tailwind CSS across a 3-person frontend team."
     ],
-    stackMarks: [
-      { label: "Sui", mark: "S", tone: "blue" },
-      { label: "Walrus", mark: "W", tone: "purple" },
-      { label: "dapp-kit", mark: "DK", tone: "navy" },
-      { label: "SuiNS", mark: "SN", tone: "blue" },
-      { label: "Radix UI", mark: "RX", tone: "slate" }
+    stackLogos: [
+      { label: "Sui", icon: "/assets/stack/sui.svg" },
+      { label: "Walrus", icon: "/assets/stack/walrus.webp" },
+      { label: "React", icon: "/assets/stack/react.svg" },
+      { label: "Tailwind CSS", icon: "/assets/stack/tailwindcss.svg" },
+      { label: "Radix UI", icon: "/assets/stack/radixui.svg" }
     ],
     tags: ["Sui", "Walrus", "dapp-kit", "React", "Tailwind CSS", "Radix UI"],
     links: [],
