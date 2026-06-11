@@ -576,6 +576,41 @@ main {
   margin-top: 16px;
 }
 
+.project-anchors {
+  display: grid;
+  margin-top: 18px;
+  border: 1px solid var(--line-dark);
+  background: #fbfcfd;
+}
+
+.project-anchor {
+  display: grid;
+  grid-template-columns: 116px minmax(0, 1fr);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-anchor:last-child {
+  border-bottom: 0;
+}
+
+.project-anchor span {
+  padding: 10px 11px;
+  border-right: 1px solid var(--line);
+  color: var(--navy);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.project-copy .project-anchor p {
+  margin: 0;
+  padding: 10px 11px;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
 .stack-logo-row {
   margin-top: 18px;
   padding-top: 16px;
@@ -1245,6 +1280,20 @@ main {
 
   .project-image-main {
     aspect-ratio: 4 / 3;
+  }
+
+  .project-anchor {
+    grid-template-columns: 1fr;
+  }
+
+  .project-anchor span {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 5px;
+  }
+
+  .project-copy .project-anchor p {
+    padding-top: 7px;
   }
 
   .achievement-item {

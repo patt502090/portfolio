@@ -45,6 +45,16 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </li>
           ))}
         </ul>
+        {project.presentation.length ? (
+          <div className="project-anchors" aria-label={`${project.title} presentation anchors`}>
+            {project.presentation.map((anchor) => (
+              <div className="project-anchor" key={anchor.label}>
+                <span>{anchor.label}</span>
+                <p>{anchor.detail}</p>
+              </div>
+            ))}
+          </div>
+        ) : null}
         <div className="stack-logo-row" aria-label={`${project.title} primary stack`}>
           {project.stackLogos.map((stack) => (
             <span

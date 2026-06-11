@@ -147,7 +147,7 @@ export function PortfolioPage() {
           <SectionHeading
             label="Section 01"
             title="Selected Engineering Records"
-            description="A concise record of production work, public systems, contest products, hardware-backed software, and network infrastructure. Each entry includes source links and inspectable evidence media."
+            description="A concise record of production work, public systems, contest products, hardware-backed software, and network infrastructure. Each entry pairs outcomes with selected architecture and proof media for interview review."
           />
           <div className="project-list">
             {projects.map((project, index) => (
@@ -230,7 +230,7 @@ export function PortfolioPage() {
           <SectionHeading
             label="Section 04"
             title={`Evidence Repository, ${allMedia.length} Files`}
-            description="All local portfolio images are retained as an evidence repository, grouped by original folder and available for direct inspection."
+            description="Curated portfolio evidence is grouped by source folder. Architecture diagrams, product screenshots, competition records, and hardware proof are selected for direct inspection without flooding the page."
           />
           <EvidenceGallery groups={galleryGroups} />
         </section>
