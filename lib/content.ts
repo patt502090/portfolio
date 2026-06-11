@@ -21,9 +21,10 @@ export type MediaItem = {
   sourceFolder: string;
 };
 
-export type PresentationAnchor = {
+export type EvidenceGroup = {
   label: string;
-  detail: string;
+  description: string;
+  media: MediaItem[];
 };
 
 export type Project = {
@@ -34,7 +35,7 @@ export type Project = {
   role: string;
   summary: string;
   impact: string[];
-  presentation: PresentationAnchor[];
+  evidenceGroups: EvidenceGroup[];
   stackLogos: StackLogo[];
   tags: string[];
   links: LinkItem[];
@@ -99,6 +100,11 @@ const buildGroup = (
   media: files.map((file, index) =>
     item(id, file, `${altBase}, image ${index + 1}`, sourceFolder)
   )
+});
+
+const withEvidence = (evidenceGroups: EvidenceGroup[]) => ({
+  evidenceGroups,
+  media: evidenceGroups.flatMap((group) => group.media)
 });
 
 const smartVoting = buildGroup(
@@ -348,23 +354,6 @@ export const projects: Project[] = [
       "Built an asynchronous ingestion pipeline with BullMQ and Redis to avoid gateway timeouts while supporting continuous uploads into an archive totaling over 500,000 files.",
       "Designed REST APIs, ISAD-G metadata models, PostgreSQL queries, and materialized views for recursive archive trees."
     ],
-    presentation: [
-      {
-        label: "Scale",
-        detail:
-          "Continuous archival ingestion across more than 500,000 accumulated files, without treating it as one oversized batch."
-      },
-      {
-        label: "Architecture",
-        detail:
-          "Presigned MinIO upload, NestJS APIs, Redis/BullMQ workers, PostgreSQL metadata, and SSE progress reporting."
-      },
-      {
-        label: "Security",
-        detail:
-          "Separated incoming uploads, private originals, and public previews with TTL, versioning, and presigned access paths."
-      }
-    ],
     stackLogos: [
       { label: "NestJS", icon: "/assets/stack/nestjs.svg" },
       { label: "PostgreSQL", icon: "/assets/stack/postgresql.svg" },
@@ -387,22 +376,36 @@ export const projects: Project[] = [
         href: "https://bia-archive.psu.ac.th/"
       }
     ],
-    media: [
-      biaBackend.media[0],
-      biaArchive.media[1],
-      biaBackend.media[2],
-      biaBackend.media[3],
-      biaBackend.media[1],
-      biaBackend.media[4],
-      biaArchive.media[0],
-      biaArchive.media[2],
-      biaArchive.media[3],
-      biaArchive.media[4],
-      biaArchive.media[5],
-      biaArchive.media[6],
-      biaArchive.media[7],
-      biaArchive.media[8]
-    ]
+    ...withEvidence([
+      {
+        label: "Architecture",
+        description:
+          "Upload, queue worker, storage policy, access-control, and multipart processing diagrams.",
+        media: [
+          biaBackend.media[0],
+          biaBackend.media[2],
+          biaBackend.media[3],
+          biaBackend.media[1],
+          biaBackend.media[4]
+        ]
+      },
+      {
+        label: "Product UI",
+        description:
+          "Live public archive and internal archive browsing screens from the deployed BIA platform.",
+        media: [
+          biaArchive.media[1],
+          biaArchive.media[0],
+          biaArchive.media[2],
+          biaArchive.media[3],
+          biaArchive.media[4],
+          biaArchive.media[5],
+          biaArchive.media[6],
+          biaArchive.media[7],
+          biaArchive.media[8]
+        ]
+      }
+    ])
   },
   {
     slug: "wise-review-platform",
@@ -416,23 +419,6 @@ export const projects: Project[] = [
       "Built a masonry-style gallery with lazy loading and skeleton states for large visual datasets.",
       "Implemented image preview modals and detail transitions with Framer Motion.",
       "Integrated tRPC for type-safe client and server API communication."
-    ],
-    presentation: [
-      {
-        label: "Frontend",
-        detail:
-          "Masonry gallery, lazy loading, skeleton states, preview modals, and detail transitions for image-heavy browsing."
-      },
-      {
-        label: "Contract",
-        detail:
-          "tRPC boundaries kept client and server API contracts explicit across the review surfaces."
-      },
-      {
-        label: "Outcome",
-        detail:
-          "A public review platform with browse, inspect, and content-discovery flows for visual archive material."
-      }
     ],
     stackLogos: [
       { label: "Next.js", icon: "/assets/stack/nextdotjs.svg" },
@@ -448,7 +434,14 @@ export const projects: Project[] = [
         href: "https://trip.psu.ac.th/review/en"
       }
     ],
-    media: wise.media
+    ...withEvidence([
+      {
+        label: "Product UI",
+        description:
+          "Browse, masonry gallery, image detail, and review screens from the live Wise platform.",
+        media: wise.media
+      }
+    ])
   },
   {
     slug: "psu-calendar",
@@ -462,22 +455,6 @@ export const projects: Project[] = [
       "Delivered a working calendar product under contest time constraints.",
       "Built a Next.js client with calendar views and a NestJS service layer for event and schedule data.",
       "Presented the system as a centralized scheduling workflow for university users."
-    ],
-    presentation: [
-      {
-        label: "Contest",
-        detail: "Built and presented a working product inside the PSU Open API Contest timeline."
-      },
-      {
-        label: "Integration",
-        detail:
-          "Connected university API data, OAuth login, event records, and Google Calendar workflows."
-      },
-      {
-        label: "Result",
-        detail:
-          "Finished as 1st runner-up with a centralized scheduling flow for university users."
-      }
     ],
     stackLogos: [
       { label: "Next.js", icon: "/assets/stack/nextdotjs.svg" },
@@ -493,7 +470,14 @@ export const projects: Project[] = [
         href: "https://github.com/patt502090/PSUCalendar"
       }
     ],
-    media: [psuOpenApi.media[2], psuOpenApi.media[0], psuOpenApi.media[1]]
+    ...withEvidence([
+      {
+        label: "Contest Proof",
+        description:
+          "Award announcement, presentation room, and team proof from the PSU Open API Contest.",
+        media: [psuOpenApi.media[2], psuOpenApi.media[0], psuOpenApi.media[1]]
+      }
+    ])
   },
   {
     slug: "smart-voting-machine",
@@ -507,23 +491,6 @@ export const projects: Project[] = [
       "Implemented two-factor voter verification with RFID and fingerprint modules.",
       "Connected ESP32, Arduino UNO, peripherals, and ODROID backend through UART, Wi-Fi, HTTP APIs, and GPIO.",
       "Built admin and results workflows with real-time vote display, SQLite storage, and AI camera wake detection."
-    ],
-    presentation: [
-      {
-        label: "Verification",
-        detail:
-          "RFID and fingerprint checks gate vote submission before the dashboard receives the result."
-      },
-      {
-        label: "Hardware",
-        detail:
-          "ESP32, Arduino, ODROID, UART, GPIO, Wi-Fi, and HTTP APIs bridge the device and backend layers."
-      },
-      {
-        label: "Operations",
-        detail:
-          "Admin dashboard, SQLite records, live vote state, and camera-based wake detection support the voting flow."
-      }
     ],
     stackLogos: [
       { label: "ESP32", icon: "/assets/stack/espressif.svg" },
@@ -539,7 +506,14 @@ export const projects: Project[] = [
         href: "https://github.com/patt502090/SmartVotingMachine"
       }
     ],
-    media: smartVoting.media
+    ...withEvidence([
+      {
+        label: "Prototype",
+        description:
+          "Hardware prototype, wiring, RFID, fingerprint, printer, display, and dashboard evidence.",
+        media: smartVoting.media
+      }
+    ])
   },
   {
     slug: "ce-group1-netops",
@@ -553,23 +527,6 @@ export const projects: Project[] = [
       "Architected 6-VLAN segmentation for Server, User, Staff Wi-Fi, Guest, Management, and DMZ zones, enforcing least-privilege access across traffic zones.",
       "Deployed Catalyst L3 inter-VLAN routing, Firepower FTD zone-based firewall policies, dynamic NAT/PAT, and LACP EtherChannel for redundant uplinks.",
       "Integrated 802.1X EAP-PEAP/MSCHAPv2 with FreeRADIUS and Samba4 AD, plus Oxidized Git-backed config versioning and SNMPv3/Grafana/Wazuh monitoring."
-    ],
-    presentation: [
-      {
-        label: "Segmentation",
-        detail:
-          "Six traffic zones separate server, user, staff Wi-Fi, guest, management, and DMZ networks."
-      },
-      {
-        label: "Identity",
-        detail:
-          "802.1X EAP-PEAP/MSCHAPv2 runs through FreeRADIUS with Samba4 AD as the identity backend."
-      },
-      {
-        label: "Operations",
-        detail:
-          "Oxidized config versioning, SNMPv3, Grafana, and Wazuh provide change tracking and monitoring."
-      }
     ],
     stackLogos: [
       { label: "Cisco", icon: "/assets/stack/cisco.svg" },
@@ -593,7 +550,14 @@ export const projects: Project[] = [
         href: "https://github.com/patt502090/CE-Group1-NetOps"
       }
     ],
-    media: ceNetOps.media
+    ...withEvidence([
+      {
+        label: "Lab Proof",
+        description:
+          "Rack, switching, cabling, firewall, monitoring, and lab operation evidence from CE-Group1-NetOps.",
+        media: ceNetOps.media
+      }
+    ])
   },
   {
     slug: "ivory-web3-archive-platform",
@@ -608,23 +572,6 @@ export const projects: Project[] = [
       "Built dashboard surfaces for blockchain state, deployment status, and Walrus blob data.",
       "Standardized shared UI components with Radix UI and Tailwind CSS across a 3-person frontend team."
     ],
-    presentation: [
-      {
-        label: "Deploy",
-        detail:
-          "Static site upload, build orchestration, Walrus blob storage, and status polling are shown as a single flow."
-      },
-      {
-        label: "Chain State",
-        detail:
-          "Sui wallet authentication, blob attributes, SuiNS management, and ownership transfer connect UI actions to on-chain state."
-      },
-      {
-        label: "Trade-off",
-        detail:
-          "Cost comparison evidence separates server, site-builder, and job behavior across different deployment sizes."
-      }
-    ],
     stackLogos: [
       { label: "Sui", icon: "/assets/stack/sui.svg" },
       { label: "Walrus", icon: "/assets/stack/walrus.webp" },
@@ -634,19 +581,33 @@ export const projects: Project[] = [
     ],
     tags: ["Sui", "Walrus", "dapp-kit", "React", "Tailwind CSS", "Radix UI"],
     links: [],
-    media: [
-      ivoryProject.media[2],
-      ivoryProject.media[1],
-      ivory.media[0],
-      ivory.media[2],
-      ivoryProject.media[0],
-      ivoryProject.media[3],
-      ivoryProject.media[4],
-      ivoryProject.media[5],
-      ivoryProject.media[6],
-      ivoryProject.media[7],
-      ivory.media[1]
-    ]
+    ...withEvidence([
+      {
+        label: "Architecture",
+        description:
+          "System architecture, deploy sequence, create/update flows, ownership transfer, and transaction proof.",
+        media: [
+          ivoryProject.media[2],
+          ivoryProject.media[1],
+          ivoryProject.media[4],
+          ivoryProject.media[5],
+          ivoryProject.media[6],
+          ivoryProject.media[7]
+        ]
+      },
+      {
+        label: "Product UI",
+        description:
+          "Dashboard, upload, deployment status, and wallet-facing screens from IVORY.",
+        media: [ivory.media[0], ivory.media[2], ivoryProject.media[0], ivory.media[1]]
+      },
+      {
+        label: "Cost Proof",
+        description:
+          "Cost comparison evidence for server, site-builder, and job behavior across deployment sizes.",
+        media: [ivoryProject.media[3]]
+      }
+    ])
   }
 ];
 

@@ -12,19 +12,30 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
+  const [activeGroupIndex, setActiveGroupIndex] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const active = project.media[activeIndex] ?? project.media[0];
+  const evidenceGroups = project.evidenceGroups.length
+    ? project.evidenceGroups
+    : [{ label: "Evidence", description: "Selected project evidence.", media: project.media }];
+  const activeGroup = evidenceGroups[activeGroupIndex] ?? evidenceGroups[0];
+  const activeItems = activeGroup.media;
+  const active = activeItems[activeIndex] ?? activeItems[0] ?? project.media[0];
 
   const closeLightbox = () => setLightboxIndex(null);
   const showPrev = () =>
     setLightboxIndex((current) =>
-      current === null ? null : (current - 1 + project.media.length) % project.media.length
+      current === null ? null : (current - 1 + activeItems.length) % activeItems.length
     );
   const showNext = () =>
     setLightboxIndex((current) =>
-      current === null ? null : (current + 1) % project.media.length
+      current === null ? null : (current + 1) % activeItems.length
     );
+
+  const showGroup = (groupIndex: number) => {
+    setActiveGroupIndex(groupIndex);
+    setActiveIndex(0);
+  };
 
   return (
     <article className="project-card" id={project.slug}>
@@ -45,16 +56,6 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
             </li>
           ))}
         </ul>
-        {project.presentation.length ? (
-          <div className="project-anchors" aria-label={`${project.title} presentation anchors`}>
-            {project.presentation.map((anchor) => (
-              <div className="project-anchor" key={anchor.label}>
-                <span>{anchor.label}</span>
-                <p>{anchor.detail}</p>
-              </div>
-            ))}
-          </div>
-        ) : null}
         <div className="stack-logo-row" aria-label={`${project.title} primary stack`}>
           {project.stackLogos.map((stack) => (
             <span
@@ -86,6 +87,19 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         ) : null}
       </div>
       <div className="project-media" data-layout={index % 2 === 0 ? "left" : "right"}>
+        <div className="evidence-group-tabs" aria-label={`${project.title} evidence groups`}>
+          {evidenceGroups.map((group, groupIndex) => (
+            <button
+              className={groupIndex === activeGroupIndex ? "is-active" : ""}
+              key={group.label}
+              type="button"
+              onClick={() => showGroup(groupIndex)}
+            >
+              <span>{group.label}</span>
+              <strong>{group.media.length}</strong>
+            </button>
+          ))}
+        </div>
         <button
           className="project-image-main"
           type="button"
@@ -102,12 +116,16 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           />
           <span>
             <Images size={16} aria-hidden="true" />
-            {activeIndex + 1}/{project.media.length}
+            {activeIndex + 1}/{activeItems.length}
           </span>
         </button>
-        {project.media.length > 1 ? (
+        <div className="evidence-group-note">
+          <strong>{activeGroup.label}</strong>
+          <p>{activeGroup.description}</p>
+        </div>
+        {activeItems.length > 1 ? (
           <div className="project-image-strip" aria-label={`${project.title} image selector`}>
-            {project.media.map((media, mediaIndex) => (
+            {activeItems.map((media, mediaIndex) => (
               <button
                 className={mediaIndex === activeIndex ? "project-image-thumb is-active" : "project-image-thumb"}
                 key={media.src}
@@ -124,7 +142,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
       {lightboxIndex !== null ? (
         <Lightbox
-          items={project.media}
+          items={activeItems}
           index={lightboxIndex}
           onClose={closeLightbox}
           onPrev={showPrev}
