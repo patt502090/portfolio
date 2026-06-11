@@ -181,15 +181,6 @@ const biaArchive = buildGroup(
   "Archives BIA interface"
 );
 
-const biaBackend = buildGroup(
-  "bia-backend",
-  "Archives BIA Backend Architecture",
-  "BIA BACKEND",
-  "Selected backend architecture diagrams for ingestion, storage policy, access control, and worker processing.",
-  ["01.png", "02.png", "03.png", "04.png", "05.png"],
-  "Archives BIA backend architecture"
-);
-
 const icpc2024 = buildGroup(
   "icpc-2024",
   "ICPC Thailand National Round 2024",
@@ -302,7 +293,6 @@ const certifications = buildGroup(
 
 export const galleryGroups: GalleryGroup[] = [
   biaArchive,
-  biaBackend,
   wise,
   psuOpenApi,
   smartVoting,
@@ -378,21 +368,9 @@ export const projects: Project[] = [
     ],
     ...withEvidence([
       {
-        label: "Architecture",
-        description:
-          "Upload, queue worker, storage policy, access-control, and multipart processing diagrams.",
-        media: [
-          biaBackend.media[0],
-          biaBackend.media[2],
-          biaBackend.media[3],
-          biaBackend.media[1],
-          biaBackend.media[4]
-        ]
-      },
-      {
         label: "Product UI",
         description:
-          "Live public archive and internal archive browsing screens from the deployed BIA platform.",
+          "Live public archive and internal archive browsing screens from the deployed BIA platform. Detailed backend diagrams are kept out of the public site.",
         media: [
           biaArchive.media[1],
           biaArchive.media[0],
