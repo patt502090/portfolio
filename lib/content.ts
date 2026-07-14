@@ -259,22 +259,13 @@ const wise = buildGroup(
   "Wise Review Platform interface"
 );
 
-const ivory = buildGroup(
-  "ivory-blockchain",
-  "IVORY Blockchain",
-  "IVORY blockchain",
-  "Web3 archive platform screenshots for Sui, Walrus, wallet auth, and dashboard work.",
-  ["01.png", "02.jpg", "03.png"],
-  "IVORY blockchain interface"
-);
-
 const ivoryProject = buildGroup(
   "ivory-project",
-  "IVORY Project Architecture",
-  "IVORY Project",
-  "Selected IVORY evidence covering product dashboard, deployment sequence, system architecture, cost, create/update flows, and ownership control.",
-  ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png", "08.png"],
-  "IVORY project technical evidence"
+  "IVORY Platform",
+  "platform for deploying dApps and static (1)",
+  "Updated IVORY presentation and product screens for deploying dApps and static sites.",
+  ["01.png", "02.png", "03.png", "04.png", "05.png", "06.png", "07.png"],
+  "IVORY platform evidence"
 );
 
 const certifications = buildGroup(
@@ -304,7 +295,6 @@ export const galleryGroups: GalleryGroup[] = [
   psuOpenApi,
   smartVoting,
   ceNetOps,
-  ivory,
   ivoryProject,
   networkTrack,
   cyberTopTalent,
@@ -558,29 +548,10 @@ export const projects: Project[] = [
     links: [],
     ...withEvidence([
       {
-        label: "Architecture",
+        label: "Platform",
         description:
-          "System architecture, deploy sequence, create/update flows, ownership transfer, and transaction proof.",
-        media: [
-          ivoryProject.media[2],
-          ivoryProject.media[1],
-          ivoryProject.media[4],
-          ivoryProject.media[5],
-          ivoryProject.media[6],
-          ivoryProject.media[7]
-        ]
-      },
-      {
-        label: "Product UI",
-        description:
-          "Dashboard, upload, deployment status, and wallet-facing screens from IVORY.",
-        media: [ivory.media[0], ivory.media[2], ivoryProject.media[0], ivory.media[1]]
-      },
-      {
-        label: "Cost Proof",
-        description:
-          "Cost comparison evidence for server, site-builder, and job behavior across deployment sizes.",
-        media: [ivoryProject.media[3]]
+          "Updated IVORY presentation and product screens for deploying dApps and static sites with Sui and Walrus.",
+        media: ivoryProject.media
       }
     ])
   }
