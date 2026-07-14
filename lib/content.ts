@@ -170,13 +170,20 @@ const biaArchive = buildGroup(
   [
     "01.jpeg",
     "02.png",
-    "03.png",
-    "04.png",
+    "03.jpeg",
+    "04.jpeg",
     "05.png",
     "06.png",
     "07.jpeg",
-    "08.png",
-    "09.png"
+    "08.jpeg",
+    "09.png",
+    "10.png",
+    "11.png",
+    "12.png",
+    "13.png",
+    "14.png",
+    "15.png",
+    "16.png"
   ],
   "Archives BIA interface"
 );
@@ -371,17 +378,7 @@ export const projects: Project[] = [
         label: "Product UI",
         description:
           "Live public archive and internal archive browsing screens from the deployed BIA platform. Detailed backend diagrams are kept out of the public site.",
-        media: [
-          biaArchive.media[1],
-          biaArchive.media[0],
-          biaArchive.media[2],
-          biaArchive.media[3],
-          biaArchive.media[4],
-          biaArchive.media[5],
-          biaArchive.media[6],
-          biaArchive.media[7],
-          biaArchive.media[8]
-        ]
+        media: biaArchive.media
       }
     ])
   },
@@ -590,7 +587,7 @@ export const projects: Project[] = [
 ];
 
 export const heroMedia = [
-  biaArchive.media[1],
+  biaArchive.media[0],
   wise.media[0],
   ceNetOps.media[0],
   smartVoting.media[0],
